@@ -3,7 +3,7 @@ import Logo from './Asset/Logo-image.png'
 const HomeCard = () => {
   return (
     <div>
-        <div className="flex justify-between items-center w-full h-full gap-y-40 flex-col sm:gap-y-16 ">
+        <div className="flex justify-end items-center  w-full h-full gap-y-40 flex-col sm:gap-y-16 ">
                 <div className="flex  w-full  justify-center items-center flex-col gap-y-8">
                   <div className="w-96 h-8 font-ubuntu text-black font-medium text-3xl">
                     How Can I Help You Today?

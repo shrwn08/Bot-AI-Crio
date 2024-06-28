@@ -1,11 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import Logo from "./Asset/Logo-image.png";
 import NewChat from "./Asset/write.png";
-import HistoryChat from "./HistoryChat";
 
 const SideBar = () => {
     
-    const handlePastConversationBtn = () =>{
+    const handlePastConversationBtn = (handlePastConversationBtn) =>{
         // setPastButton('true');
     }
   return (

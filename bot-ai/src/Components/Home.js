@@ -8,7 +8,7 @@ import { CircularProgress } from "@mui/material";
 import HistoryChat from "./HistoryChat";
 import ChattingBox from "./ChattingBox";
 
-const Home = ({ data }) => {
+const Home = ({ data,handleOnClickSaveBtn,setCardData,saveBtn,cardDataDetails }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [pastButton, setPastButton] = useState(false);
   const [askBtn,setAskBtn] = useState(false)
@@ -42,18 +42,22 @@ const Home = ({ data }) => {
       console.log("open btn display");
     }
   };
-console.log(inputData)
+  const handlePastConversationBtn= () =>{
+    setPastButton(true)
+  }
+
+  
   return (
     <div>
       <div className="relative h-screen flex bg-gradient-to-r from-[#D7C7F433] to-[#9785BA33] overflow-hidden">
         <div
-          className={`sm:w-2/12 bg-white z-10 ${showMenu ? "block" : "hidden"}`}
+          className={`sm:w-2/12 h-1/5  bg-white z-10 ${showMenu ? "block" : "hidden"}`}
           id="sidebar-container"
         >
-          <SideBar />
+          <SideBar handlePastConversationBtn={handlePastConversationBtn}/>
         </div>
         <div
-          className="w-full absolute right-0 h-full flex  justify-center   sm:w-10/12 "
+          className="w-full absolute right-0 h-full flex  justify-center bg-pink  sm:w-10/12 "
           id="header-inputField"
         >
           <div className="flex w-full h-full flex-col justify-between  gap-y-8">
@@ -81,9 +85,13 @@ console.log(inputData)
                 Bot AI
               </div>
             </div>
-            <div className="w-full sm:h-3/4   flex flex-col justify-between ">
-              <div className="mb-20">
-              {!askBtn?<HomeCard />:<ChattingBox data={data} inputData={inputData}/>}
+            <div className="w-full h-full mb-20   ">
+              <div className="mb-20  ">
+              {!pastButton ? (
+                  !askBtn ? <HomeCard /> : <ChattingBox data={data} inputData={inputData} setCardData={setCardData} saveBtn={saveBtn} />
+                ) : (
+                  <HistoryChat cardDataDetails={cardDataDetails} />
+                )}
               </div>
              
 
@@ -91,7 +99,7 @@ console.log(inputData)
               <form className="px-6 " onSubmit={(e) => e.preventDefault()}>
                 <div className="sm:w-4/5 w-11/12 fixed bottom-0 right-2 mx-2 flex justify-center items-center gap-x-4  z-10">
                   <input
-                    className="bg-white w-full border-solid border border-[#00000073] rounded my-4 h-10 sm:w-10/12"
+                    className="bg-white w-full border-solid border border-[#00000073] rounded my-4 px-6 h-10 sm:w-10/12"
                     onChange={handleOnChange}
                     value={inputValue}
                   />
@@ -104,6 +112,7 @@ console.log(inputData)
                   </button>
                   <button
                     type="submit"
+                    onClick={handleOnClickSaveBtn}
                     className="w-16 hover:rounded bg-[#c2a9f1] hover:bg-[#9f73ef] text-black dark:text-white h-10"
                   >
                     Save

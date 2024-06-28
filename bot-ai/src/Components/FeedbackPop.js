@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import Idea from "./Asset/idea.png";
-const FeedbackPop = () => {
+const FeedbackPop = ({handleFeedbackSubmitBtn,feedbacks,setFeedbacks}) => {
+
+  const [localFeedback, setLocalFeedback] = useState(feedbacks);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFeedbacks(localFeedback);
+    handleFeedbackSubmitBtn();
+  };
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-gradient-to-r from-[#D7C7F433] to-[#9785BA33] fixed top-0 left-0">
-      <form className="h-96 w-full bg-slate-50 flex justify-center items-center rounded-[10px] sm:w-2/3 sm:h-96">
+      <form className="h-96 w-full bg-slate-50 flex justify-center items-center rounded-[10px] sm:w-2/3 sm:h-96" onSubmit={handleSubmit}>
         <div className="w-full h-full m-5 rounded-[10px] bg-[#FAF7FF] flex flex-col justify-center items-center">
           <div className="flex justify-between items-center p-3 sm:w-full sm">
             <div className="flex justify-center items-center gap-x-1">
@@ -25,10 +32,10 @@ const FeedbackPop = () => {
             </button>
           </div>
           <div className="w-full h-full flex justify-center items-center border-[#00000073]border-2 border-solid">
-            <input type="text" className="w-full h-56 rounded-[10px] " />
+            <input type="text" onChange={(e)=>setFeedbacks(e.target.value)} value={feedbacks} className="w-full h-56 rounded-[10px] " />
           </div>
           <div className="w-full flex justify-end items-center ">
-            <button className="bg-[#D7C7F4] p-3 rounded-[5px] mb-3 hover:cursor-pointer">
+            <button  className="bg-[#D7C7F4] p-3 rounded-[5px] mb-3 hover:cursor-pointer">
               Submit
             </button>
           </div>
