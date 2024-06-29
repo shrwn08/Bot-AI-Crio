@@ -55,11 +55,12 @@ const ChattingBox = ({ data, inputData, setCardData, saveBtn }) => {
       setCardData({
         askedQuestion: inputData.toString(),
         answerData: resData.toString(),
+        time:time,
         rating: ratingValue,
         feedbackData: feedbacks,
       });
     }
-  }, [saveBtn, inputData, resData, ratingValue, feedbacks, setCardData]);
+  }, [saveBtn, inputData, resData, ratingValue, feedbacks,time, setCardData]);
 
   useEffect(() => {
     if (chatBoxRef.current) {

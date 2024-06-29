@@ -8,11 +8,13 @@ function App() {
   const [saveBtn, setSaveBtn] = useState(false);
   const [cardDataDetails, setCardDataDetails] = useState([]);
   const [cardData, setCardData] = useState({
-    akedQuestion: "",
+    askedQuestion: "",
     answerData: "",
+    time:"",
     rating: "",
     feedbackData: "",
   });
+  const [showPastConversations, setShowPastConversations] = useState(false);
 
   useEffect(() => {
     setData(QuesAnsData);
@@ -29,6 +31,7 @@ function App() {
       setCardData({
         askedQuestion: "",
         answerData: "",
+        time:"",
         rating: "",
         feedbackData: "",
       });
@@ -37,6 +40,10 @@ function App() {
 
   const handleOnClickSaveBtn = () => {
     setSaveBtn(true);
+  };
+
+  const handlePastConversationBtn = () => {
+    setShowPastConversations(true);
   };
 
   console.log(cardDataDetails);
@@ -48,8 +55,9 @@ function App() {
         setCardData={setCardData}
         saveBtn={saveBtn}
         cardDataDetails={cardDataDetails}
+        showPastConversations={showPastConversations}
+        handlePastConversationBtn={handlePastConversationBtn}
       />
-      {/* <FeedbackPop /> */}
     </div>
   );
 }
