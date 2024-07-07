@@ -20,34 +20,34 @@ const HomeCard = () => {
                     <p className="w-[9.5rem] h-[2.875rem] font-ubuntu text-xl text-black leading-5 font-bold sm:w-full">
                       Hi, what is the weather
                     </p>
-                    <p className="w-[15rem]  font-open-sans text-[#00000080] text-base font-normal sm:w-full">
+                    <p className="w-[15rem]  font-[sans] text-[#00000080] text-base font-normal sm:w-full">
                       Get immediate AI generated response
                     </p>
                     
                   </div>
                   <div className="drop-shadow-xl rounded-md bg-white w-[22.25rem] h-[7rem] p-2">
                     <p className="w-[9.5rem] h-[2.875rem] font-ubuntu text-xl text-black leading-5 font-bold sm:w-full">
-                      Hi, what is the weather
+                    Hi, what is my location
                     </p>
-                    <p className="w-[15rem] font-open-sans text-[#00000080] text-base font-normal sm:w-full">
+                    <p className="w-[15rem] font-[sans] text-[#00000080] text-base font-normal sm:w-full">
                       Get immediate AI generated response
                     </p>
                    
                   </div>
                   <div className="drop-shadow-xl rounded-md bg-white w-[22.25rem] h-[7rem] p-2">
                     <p className="w-[9.5rem] h-[2.875rem] font-ubuntu text-xl text-black leading-5 font-bold sm:w-full">
-                      Hi, what is the weather
+                    Hi, what is the temperature
                     </p>
-                    <p className="w-[15rem]  font-open-sans text-[#00000080] text-base font-normal sm:w-full">
+                    <p className="w-[15rem]  font-[sans] text-[#00000080] text-base font-normal sm:w-full">
                       Get immediate AI generated response
                     </p>
                    
                   </div>
                   <div className="drop-shadow-xl rounded-md bg-white w-[22.25rem] h-[7rem] p-2 hidden sm:block">
                     <p className="w-[9.5rem] h-[2.875rem] font-ubuntu text-xl text-black leading-5 font-bold sm:w-full">
-                      Hi, what is the weather
+                    Hi, how are you
                     </p>
-                    <p className="w-[15rem]  font-open-sans text-[#00000080] text-base font-normal sm:w-full">
+                    <p className="w-[15rem]  font-[sans] text-[#00000080] text-base font-normal sm:w-full">
                       Get immediate AI generated response
                     </p>
                     

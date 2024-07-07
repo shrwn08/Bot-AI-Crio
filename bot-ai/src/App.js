@@ -10,7 +10,7 @@ function App() {
   const [cardData, setCardData] = useState({
     askedQuestion: "",
     answerData: "",
-    time:"",
+    time: "",
     rating: "",
     feedbackData: "",
   });
@@ -21,20 +21,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (
-      saveBtn &&
-      cardData.askedQuestion !== "" &&
-      cardData.answerData !== ""
-    ) {
-      setCardDataDetails((prevCardData) => [...prevCardData, cardData]);
-
+    if (saveBtn && cardData.askedQuestion && cardData.answerData) {
+      setCardDataDetails((prevCardDataDetails) => [...prevCardDataDetails, { ...cardData }]);
+      console.log("Card Data Added: ", cardData);
+      
       setCardData({
         askedQuestion: "",
         answerData: "",
-        time:"",
+        time: "",
         rating: "",
         feedbackData: "",
       });
+
+      setSaveBtn(false); // Reset saveBtn after adding the cardData
     }
   }, [saveBtn, cardData]);
 
@@ -46,7 +45,8 @@ function App() {
     setShowPastConversations(true);
   };
 
-  console.log(cardDataDetails);
+  console.log("Card Data Details: ", cardDataDetails); // For debugging
+
   return (
     <div className="App">
       <Home

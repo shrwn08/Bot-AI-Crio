@@ -55,12 +55,12 @@ const ChattingBox = ({ data, inputData, setCardData, saveBtn }) => {
       setCardData({
         askedQuestion: inputData.toString(),
         answerData: resData.toString(),
-        time:time,
+        time: time,
         rating: ratingValue,
         feedbackData: feedbacks,
       });
     }
-  }, [saveBtn, inputData, resData, ratingValue, feedbacks,time, setCardData]);
+  }, [saveBtn, inputData, resData, ratingValue, feedbacks, time, setCardData]);
 
   useEffect(() => {
     if (chatBoxRef.current) {
@@ -130,9 +130,9 @@ const ChattingBox = ({ data, inputData, setCardData, saveBtn }) => {
                 <p className="font-[ubuntu] font-bold text-[16px] text-black">
                   You
                 </p>
-                <p className="font-[open] font-normal">{ques}</p>
+                <p className="font-[sans] font-normal">{ques}</p>
                 <div className="flex justify-between items-center mt-2">
-                  <p className="font-[open] font-normal text-[12px] text-[#0000009E]">
+                  <p className="font-[sans] font-normal text-[12px] text-[#0000009E]">
                     {time}
                   </p>
                   <div className="flex gap-x-2 items-center">
@@ -158,9 +158,9 @@ const ChattingBox = ({ data, inputData, setCardData, saveBtn }) => {
                 <p className="font-[ubuntu] font-bold text-[16px] text-black">
                   Soul AI
                 </p>
-                <p className="font-[open] font-normal">{resData[index]}</p>
+                <p className="font-[sans] font-normal">{resData[index]}</p>
                 <div className="flex justify-between items-center mt-2">
-                  <p className="font-[open] font-normal text-[12px] text-[#0000009E]">
+                  <p className="font-[sans] font-normal text-[12px] text-[#0000009E]">
                     {time}
                   </p>
 

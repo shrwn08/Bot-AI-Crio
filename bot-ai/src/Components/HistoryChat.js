@@ -9,57 +9,72 @@ const HistoryChat = ({ cardDataDetails }) => {
   }
 
   return (
-    <div className="w-full h-full flex flex-col justify-between items-center">
-      <div className="font-[ubuntu] font-normal text-[28px] text-black flex justify-center items-center">
+    <div className="w-full h-screen mb-8 flex flex-col items-center ">
+      <div className="font-[ubuntu] font-normal text-[28px] text-black flex justify-center items-center mt-4">
         Conversation History
       </div>
-      <div className="w-11/12 h-full flex flex-col justify-start items-center">
-        <div className="w-11/12 font-[Ubuntu] font-normal text-xl text-black flex justify-start items-center">
+      <div className="w-11/12 h-3/4 flex flex-col justify-end items-center ">
+        <div className="w-full font-[Ubuntu] font-normal text-xl text-black flex justify-start items-center mb-4">
           Today's Chats
         </div>
-        <div className="w-11/12 h-[calc(100%-100px)] flex flex-col justify-start items-start overflow-y-auto mt-4 space-y-4">
+        <div className="w-full h- flex-1 overflow-y-auto  space-y-4 " style={{ maxHeight: '800px' }}>
           {cardDataDetails.map((info, index) => (
             <div
-              className="w-full flex flex-col items-start mt-4 space-y-4 bg-gradient-to-r from-[#BFACE2] to-[#D7C7F4] rounded-[10px] p-4"
+              className="w-full flex flex-col items-start bg-[#d7c7f4] rounded-lg p-4 shadow-md"
               key={index}
             >
-              <div className="w-full flex justify-start items-start flex-col">
-                <div className="flex items-center justify-between gap-x-8 sm:justify-start">
-                  <div className="w-10 h-10 sm:w-[65.3px] sm:h-[69px] rounded-full overflow-hidden">
+              <div className="w-full flex flex-col items-start">
+                <div className="flex items-center gap-x-4">
+                  <div className="w-12 h-12 rounded-full overflow-hidden">
                     <img
                       src={User}
                       alt="user"
-                      className="w-full h-full"
+                      className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="w-[3/5]">
-                    <div className="font-[Ubuntu] font-bold text-base text-black">
+                  <div>
+                    <div className="font-[Ubuntu] font-bold text-lg text-black">
                       You
                     </div>
-                    <div className="font-[open] font-normal text-base text-black">
+                    <div className="font-[sans] font-normal text-base text-black">
                       {info.askedQuestion}
                     </div>
                     <div className="text-gray-500">{info.time}</div>
                   </div>
                 </div>
-                <div className="flex items-center justify-between gap-x-6 sm:justify-start mt-4">
-                  <div className="bg-blue-400 w-64 h-10 sm:w-[100px] sm:h-[60px] overflow-hidden rounded-full">
+                <div className="flex items-center gap-x-4 mt-4">
+                  <div className="w-12 h-12 rounded-full overflow-hidden">
                     <img
                       src={Logo}
-                      alt="user"
-                      className="w-full h-full"
+                      alt="Soul AI"
+                      className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="w-[3/5]">
-                    <div className="font-[Ubuntu] font-bold text-base text-black">
+                  <div>
+                    <div className="font-[Ubuntu] font-bold text-lg text-black">
                       Soul AI
                     </div>
-                    <div className="font-[open] font-normal text-base text-black">
+                    <div className="font-[sans] font-normal text-base text-black">
                       {info.answerData}
                     </div>
                     <div className="text-gray-500">{info.time}</div>
                   </div>
                 </div>
+                {info.rating && (
+                  <div className="mt-2">
+                    <Rating
+                      name="read-only"
+                      value={info.rating}
+                      readOnly
+                      precision={0.5}
+                    />
+                  </div>
+                )}
+                {info.feedbackData && (
+                  <div className="mt-2 text-gray-700">
+                    Feedback: {info.feedbackData}
+                  </div>
+                )}
               </div>
             </div>
           ))}
